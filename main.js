@@ -25,11 +25,29 @@
 
   //create a function when invoked returns the name of that employee.
 
+  function sayMyName (employee ) {
+    return employee.name;
+  }
+
   // employeeA.sayMyName(); // "jack"
   // employeeB.sayMyName(); // "Mark"
 
 
   //now modify that closure and add a function that says hello to the employee name;
+
+  function employees (employee){
+    return {
+      sayHello : function (employee) {
+        return "Hello" + employee
+      },
+      sayMyName : function  (employe) {
+        return employee
+      }
+    }   
+  }
+
+
+
 
   // employeeA.sayHello(); // hello jack
   // employeeB.sayHello(); // hello Mark
@@ -37,8 +55,40 @@
   //modify your closure and add function increaseSalary that increases the salary for the employee by n value and return it.
   //employeeA.increaseSalary(50); // "your salary is 150$"
 
+
+  function employees (employee){
+    return {
+      sayHello : function (employee) {
+        return "Hello" + employee
+      },
+      sayMyName : function  (employe) {
+        return employee
+      },
+      increaseSalary : function (amount) {
+        return salary=salary+amount
+      }
+    }   
+  }
+
   //how about we let jack and mark meet togther!
   //modify your closure and add function addFriend that accepts an object as a parameter, and let jack meets his friends.
+
+  function employees (employee){
+    var amount=0;
+    var x=employee.name
+    return {
+      sayHello : function (x) {
+        return "Hello" + x
+      },
+      sayMyName : function  (x) {
+        return x
+      },
+      increaseSalary : function (amount) {
+        return employee.salary=employee.salary+amount
+      }
+    }   
+  }
+
 
   // employeeA.addFriend(employeeB); // "you just became friend with Mark"
   // employeeA.addFriend(employeeC); // "you just became friend with Mark and Sara"
@@ -101,8 +151,16 @@ function reduce(array, f, acc) {
 
 // Use the updated version of reduce to write a function max that returns the maximum number in an array of numbers. 
 
-// Write your code here .....
-
+function max (array) {
+  return reduce (array,function(acc,element) {
+    if (element>acc) {
+      return element;
+    }
+    else {
+      return acc;
+    }
+  })
+}
 
 
 
