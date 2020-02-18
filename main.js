@@ -11,23 +11,33 @@
 //==============================================================================
 //lets make an employee profile using closures
 
-  function employee (name,salary){
-    return {
-      name: name,
-      salary: salary
-    }   
-  }
+function employee (name,salary){
+  return {
+    name: name,
+    salary: salary,
+    sayMyName: function () {
+        return name
+    },
+    sayHello: function () {
+        return "hello " + name
+    },
+    increaseSalary: function (n) {
+        return "your salary is " + (salary=salary+n)
+    },
+    addFriend: function (obj) {
+        var array=Object.values(obj);
+        return "you just become friend with " + array[0]
+    }
+  }   
+}
 
-  var employeeA = employee("jack", 100);
-  var employeeB = employee("Mark", 200);
-  var employeeC = employee("Sara", 150);
+var employeeA = employee("jack", 100);
+var employeeB = employee("Mark", 200);
+var employeeC = employee("Sara", 150);
+
 
 
   //create a function when invoked returns the name of that employee.
-
-  function sayMyName (employee ) {
-    return employee.name;
-  }
 
   // employeeA.sayMyName(); // "jack"
   // employeeB.sayMyName(); // "Mark"
@@ -35,60 +45,14 @@
 
   //now modify that closure and add a function that says hello to the employee name;
 
-  function employees (employee){
-    return {
-      sayHello : function (employee) {
-        return "Hello" + employee
-      },
-      sayMyName : function  (employe) {
-        return employee
-      }
-    }   
-  }
-
-
-
-
   // employeeA.sayHello(); // hello jack
   // employeeB.sayHello(); // hello Mark
 
   //modify your closure and add function increaseSalary that increases the salary for the employee by n value and return it.
   //employeeA.increaseSalary(50); // "your salary is 150$"
 
-
-  function employees (employee){
-    return {
-      sayHello : function (employee) {
-        return "Hello" + employee
-      },
-      sayMyName : function  (employe) {
-        return employee
-      },
-      increaseSalary : function (amount) {
-        return salary=salary+amount
-      }
-    }   
-  }
-
   //how about we let jack and mark meet togther!
   //modify your closure and add function addFriend that accepts an object as a parameter, and let jack meets his friends.
-
-  function employees (employee){
-    var amount=0;
-    var x=employee.name
-    return {
-      sayHello : function (x) {
-        return "Hello" + x
-      },
-      sayMyName : function  (x) {
-        return x
-      },
-      increaseSalary : function (amount) {
-        return employee.salary=employee.salary+amount
-      }
-    }   
-  }
-
 
   // employeeA.addFriend(employeeB); // "you just became friend with Mark"
   // employeeA.addFriend(employeeC); // "you just became friend with Mark and Sara"
@@ -119,6 +83,47 @@
 
 
   // Write your code here .....
+  function Pet  (name) {
+    var obj={};
+
+    obj.name=name;
+    obj.age;
+    obj.owner;
+    obj.gender;
+    obj.species;
+    obj.createPet=createPet;
+    obj.addInfo=addInfo;
+    obj.changeAge=changeAge;
+    obj.availability=false ;
+    obj.changeState=changeState;
+
+    return obj;
+}
+
+
+
+
+var addInfo = function(age, owner, gender, species){
+    this.age = age;
+    this.owner = owner;
+    this.gender = gender;
+    this.species = species;
+    return this;
+} 
+
+var changeAge= function (n) {
+	return this.age=this.age+n;
+}
+
+var changeState = function () {
+	if (this.availability=false) {
+		return true
+	}
+	else if (this.availability===true) {
+		return false
+	}
+}
+
 
 
   // Now, to make sure that you are actually reading, make a comment below this and type: Yes I am
@@ -151,17 +156,17 @@ function reduce(array, f, acc) {
 
 // Use the updated version of reduce to write a function max that returns the maximum number in an array of numbers. 
 
-function max (array) {
-  return reduce (array,function(acc,element) {
-    if (element>acc) {
-      return element;
-    }
-    else {
-      return acc;
-    }
-  })
-}
+// Write your code here .....
 
+function maximum (array) {
+  return reduce (array , function (max,element){
+    if (element>max) {
+      max = element
+    }
+    return max
+  })
+
+}
 
 
 //================================================================================
